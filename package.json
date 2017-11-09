@@ -6,7 +6,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "`yarn bin`/webpack --config config/webpack.config.js --progress -w"
+    "start": "`yarn bin`/webpack --config config/webpack.config.js --progress -w",
+    "db-create": "`yarn bin`/sequelize model:generate",
+    "db-migrate": "`yarn bin`/sequelize db:migrate"
   },
   "dependencies": {
     "koa": "^2.4.1",

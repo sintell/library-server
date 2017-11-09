@@ -1,0 +1,35 @@
+{
+  "name": "hh-library",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "sintell",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "`yarn bin`/webpack --config config/webpack.config.js --progress -w"
+  },
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-body-parser": "^1.1.2",
+    "koa-router": "^7.2.1",
+    "koa-session": "^5.5.0",
+    "sequelize": "^4.22.5",
+    "sqlite3": "^3.1.13"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2017": "^6.24.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "prettier-eslint-webpack-plugin": "^0.14.73",
+    "sequelize-cli": "^3.0.0",
+    "webpack": "^3.8.1",
+    "webpack-node-externals": "^1.6.0"
+  }
+}

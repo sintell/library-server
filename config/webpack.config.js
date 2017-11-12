@@ -2,6 +2,7 @@ const { PrettierEslintPlugin } = require('prettier-eslint-webpack-plugin');
 const path = require('path');
 const fs = require('fs');
 const nodeExternals = require('webpack-node-externals');
+const { IgnorePlugin } = require('webpack');
 
 const eslintConfig = fs.readFileSync(`${process.cwd()}/.eslintrc`);
 
@@ -55,5 +56,6 @@ module.exports = {
         bracketSpacing: true,
       },
     }),
+    new IgnorePlugin(/vertx/),
   ],
 };

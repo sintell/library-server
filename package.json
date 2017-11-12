@@ -15,8 +15,10 @@
     "koa-body-parser": "^1.1.2",
     "koa-router": "^7.2.1",
     "koa-session": "^5.5.0",
+    "koa2-swagger-ui": "^2.6.2",
     "sequelize": "^4.22.5",
-    "sqlite3": "^3.1.13"
+    "sqlite3": "^3.1.13",
+    "swagger-jsdoc": "^1.9.7"
   },
   "devDependencies": {
     "babel": "^6.23.0",

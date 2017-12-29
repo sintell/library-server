@@ -48,12 +48,12 @@
 ## Contributing
 
 Все предложения принимаются и реализуются:
-- быстро - в виде **pull request**
-- медленно - в виде **issue**
+- быстро - в виде [**pull request**](https://github.com/sintell/library-server/pulls)
+- медленно - в виде [**issue**](https://github.com/sintell/library-server/issues/new)
 
 Все замечания и баги исправляются:
-- быстро - в виде **issue**
-- с благодарностью - в виде **pull request**
+- быстро - в виде [**issue**](https://github.com/sintell/library-server/issues/new)
+- с благодарностью - в виде [**pull request**](https://github.com/sintell/library-server/pulls)
 
 ## TODO
 - авторизация через Atlassian Jira

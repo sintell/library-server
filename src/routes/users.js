@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-import { User } from '../models';
+import UserService from '../services/user';
 
 const router = new Router();
 /**
@@ -9,6 +9,8 @@ const router = new Router();
  *     tags:
  *       - Users
  *     description: Returns user data
+ *     consumes:
+ *       application/json
  *     produces:
  *       - application/json
  *     parameters:
@@ -25,12 +27,13 @@ const router = new Router();
  *         description: User not found
  */
 router.get('/api/user/:id', async (ctx) => {
-  const user = await User.findById(ctx.params.id);
+  const us = new UserService();
+  const user = await us.getUserById(ctx.params.id);
   if (!user) {
-    ctx.throw(404, 'user not found');
+    ctx.throw(404);
     return;
   }
-  ctx.body = { user };
+  ctx.body = user.toJSON();
 });
 
 export default router;

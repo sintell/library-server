@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
   /**
    * @swagger
    * definitions:
@@ -10,8 +10,14 @@ module.exports = (sequelize, DataTypes) => {
    *         type: string
    *       description:
    *         type: string
-   *       author:
-   *         type: string
+   *       authors:
+   *         type: array
+   *         items:
+   *           $ref: '#/definitions/Author'
+   *       tags:
+   *         type: array
+   *         items:
+   *           $ref: '#/definitions/Tag'
    *       year:
    *         type: integer
    *       link:
@@ -26,13 +32,21 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     countTotal: DataTypes.INTEGER,
     countCurrent: DataTypes.INTEGER,
-    author: DataTypes.STRING,
     link: DataTypes.STRING,
     year: DataTypes.INTEGER,
   });
 
-  Book.associate = () => {
-    // associations can be defined here
+  Book.associate = (db) => {
+    Book.belongsToMany(db.Author, {
+      through: db.AuthorBook, as: 'authors', foreignKey: 'bookId', otherKey: 'authorId',
+    });
+    Book.belongsToMany(db.Tag, {
+      through: 'TagBook', as: 'tags', foreignKey: 'bookId', otherKey: 'tagId',
+    });
+
+    Book.belongsToMany(db.User, {
+      through: db.Reader, as: 'readers', foreignKey: 'bookId', otherKey: 'userId',
+    });
   };
 
   return Book;

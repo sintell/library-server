@@ -6,16 +6,25 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "`yarn bin`/webpack --config config/webpack.config.js --progress -w",
-    "db-create": "`yarn bin`/sequelize model:generate",
-    "db-migrate": "`yarn bin`/sequelize db:migrate"
+    "build": "yarn webpack --progress --display errors-only --config config/webpack.config.js",
+    "build-watch": "yarn webpack --config config/webpack.config.js --progress -w",
+    "dev-run": "NODE_ENV=development yarn nodemon build/server.js --watch build",
+    "run": "NODE_ENV=production yarn nodemon build/server.js",
+    "db-create": "yarn sequelize model:generate",
+    "db-migrate": "yarn sequelize db:migrate",
+    "postinstall": "yarn db-migrate && yarn build"
   },
   "dependencies": {
     "koa": "^2.4.1",
-    "koa-body-parser": "^1.1.2",
+    "koa-bodyparser": "^4.2.0",
+    "koa-cors": "^0.0.16",
+    "koa-passport": "^4.0.1",
     "koa-router": "^7.2.1",
-    "koa-session": "^5.5.0",
+    "koa-session": "^5.5.1",
     "koa2-swagger-ui": "^2.6.2",
+    "passport": "^0.4.0",
+    "passport-atlassian": "^1.0.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^4.22.5",
     "sqlite3": "^3.1.13",
     "swagger-jsdoc": "^1.9.7"
@@ -31,6 +40,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
+    "nodemon": "^1.14.3",
     "prettier-eslint-webpack-plugin": "^0.14.73",
     "sequelize-cli": "^3.0.0",
     "webpack": "^3.8.1",

@@ -5,7 +5,8 @@
     "database": "hh-library-dev",
     "host": "127.0.0.1",
     "dialect": "sqlite",
-    "storage": "db/hh-library-dev.sqlite"
+    "storage": "/path/to/db/dir/hh-library-dev.sqlite",
+    "logging": false
   },
   "production": {
     "username": "root",
@@ -13,6 +14,7 @@
     "database": "hh-library-prod",
     "host": "127.0.0.1",
     "dialect": "sqlite",
-    "storage": "db/path/to/hh-library-prod.sqlite"
+    "storage": "/path/to/db/dir/hh-library-prod.sqlite",
+    "logging": false
   }
 }

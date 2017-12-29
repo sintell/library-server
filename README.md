@@ -55,7 +55,7 @@
 
 Все замечания и баги исправляются:
 - быстро - в виде [**issue**](https://github.com/sintell/library-server/issues/new)
-- с благодарностью - в виде [**pull request**](https://github.com/sintell/library-server/pulls)
+- быстро и с благодарностью - в виде [**pull request**](https://github.com/sintell/library-server/pulls)
 
 ## TODO
 - авторизация через Atlassian Jira

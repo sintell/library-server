@@ -1,5 +1,7 @@
+.vscode
+
 build/
 node_modules/
 
 db/
-.vscode
+config/database.json

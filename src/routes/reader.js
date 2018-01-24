@@ -93,8 +93,6 @@ router.post('/api/reader/:bookId', async (ctx) => {
     ctx.throw(404);
   }
 
-  console.log(book.toJSON());
-
   if (book.countCurrent === 0) {
     ctx.throw(409);
   }

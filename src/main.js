@@ -34,8 +34,7 @@ app.use(koaSwagger({
 }));
 
 routes.forEach((route) => {
-  app
-    .use(route.routes())
+  app.use(route.routes())
     .use(route.allowedMethods());
 });
 

@@ -54,7 +54,6 @@ router.get('/api/books', async (ctx) => {
   const {
     title, authors, tags, itemsPerPage, page,
   } = ctx.query;
-  console.log(title);
   const bs = BookService();
   const books = await bs.findByCriteria({
     title, authors, tags, itemsPerPage, page,

@@ -18,6 +18,10 @@ export default (sequelize, DataTypes) => {
    *         type: array
    *         items:
    *           $ref: '#/definitions/Tag'
+   *       readers:
+   *         type: array
+   *         items:
+   *           $ref: '#/definitions/Reader'
    *       year:
    *         type: integer
    *       link:

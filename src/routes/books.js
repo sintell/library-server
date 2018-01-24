@@ -47,7 +47,7 @@ const router = new Router();
  *       200:
  *         description: Array of Books that match query params
  *         type: array
- *         schema:
+ *         items:
  *           $ref: '#/definitions/Book'
  */
 router.get('/api/books', async (ctx) => {

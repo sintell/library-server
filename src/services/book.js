@@ -12,7 +12,7 @@ const withAuthors = query => ({
   model: Author,
   attributes: ['id', 'name'],
   where: query || {},
-  required: true,
+  required: false,
   through: { attributes: [] },
   as: 'authors',
 });
@@ -21,7 +21,7 @@ const withTags = query => ({
   model: Tag,
   attributes: ['id', 'text'],
   where: query || {},
-  required: true,
+  required: false,
   through: { attributes: [] },
   as: 'tags',
 });
@@ -31,14 +31,15 @@ export default function () {
     async findByCriteria({
       title = '', authors = [], tags = [], itemsPerPage = DEFAULT_ITEMS_PER_PAGE, page = 0,
     }) {
-      const tagsQuery = tags.length ? { id: { [Op.in]: tags } } : {};
-      const authorsQuery = authors.length ? { id: { [Op.in]: authors } } : {};
+      const tagsQuery = tags.length ? { id: { [Op.in]: [].concat(tags) } } : {};
+      const authorsQuery = authors.length ? { id: { [Op.in]: [].concat(authors) } } : {};
+      const whereClause = title ? {
+        title: { [Op.like]: `${title}%` },
+      } : {};
       const books = await Book.findAll({
         offset: page * itemsPerPage,
         limit: itemsPerPage,
-        where: {
-          title: { [Op.like]: `${title}%` },
-        },
+        where: whereClause,
         include: [withAuthors(authorsQuery), withTags(tagsQuery), withReaders()],
       });
 

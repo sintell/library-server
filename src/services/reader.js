@@ -8,7 +8,7 @@ export const withReaders = query => ({
   model: User,
   attributes: ['id', 'firstName', 'lastName', 'email'],
   where: query || {},
-  required: true,
+  required: false,
   through: { attributes: ['createdAt'], as: 'readerRecord' },
   as: 'readers',
 });
